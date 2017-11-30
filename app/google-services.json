@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "70787696101",
+    "firebase_url": "https://supermercato-41757.firebaseio.com",
+    "project_id": "supermercato-41757",
+    "storage_bucket": "supermercato-41757.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70787696101:android:08552995a0a51432",
+        "android_client_info": {
+          "package_name": "mateomartinelli.user2cadem.it.supermercato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70787696101-b0spp0ifmic5cit6rl6juojucigrkc2k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mateomartinelli.user2cadem.it.supermercato",
+            "certificate_hash": "ccc754b7ace8b0459fae982bca44435464b6fb16"
+          }
+        },
+        {
+          "client_id": "70787696101-hci7p0elnoj1l8a9rf7bajrocq05d31a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFddZNAaEZu7v5vWjC8LOPBiKqpSDo18U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70787696101-hci7p0elnoj1l8a9rf7bajrocq05d31a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,18 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mateomartinelli.user2cadem.it.supermercato.MainActivity">
+    tools:context="mateomartinelli.user2cadem.it.supermercato.View.MainActivity">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/white">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/esselunga_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/esselungalogoltl" />
+
+        <TextView
+            android:id="@+id/BENVEUNTO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/esselunga_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Benvenuto"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BENVEUNTO"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="ospite"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            app:srcCompat="@drawable/magomelino" />
+
+        <ImageButton
+            android:id="@+id/registraUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView2"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@android:color/background_light"
+            app:srcCompat="@drawable/register" />
+
+        <TextView
+            android:id="@+id/registerUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registraUser"
+            android:layout_centerHorizontal="true"
+            android:text="Registrati"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/showProducts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/registraUser"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@android:color/background_light"
+            app:srcCompat="@drawable/cart" />
+
+        <TextView
+            android:id="@+id/showProdotti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showProducts"
+            android:layout_centerHorizontal="true"
+            android:text="Mostra Prodotti"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
