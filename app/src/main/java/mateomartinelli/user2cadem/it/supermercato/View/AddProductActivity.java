@@ -7,17 +7,14 @@ import android.view.WindowManager;
 
 import mateomartinelli.user2cadem.it.supermercato.R;
 
-public class ShowProdottiActivity extends AppCompatActivity {
+public class AddProductActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hidingTheTitleBar();
-        setContentView(R.layout.activity_show_prodotti);
-
-
+        setContentView(R.layout.activity_add_product);
     }
-
 
     private void hidingTheTitleBar() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);

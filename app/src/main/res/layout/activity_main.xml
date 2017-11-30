@@ -59,7 +59,8 @@
             android:layout_alignTop="@+id/imageView2"
             android:layout_centerHorizontal="true"
             android:backgroundTint="@android:color/background_light"
-            app:srcCompat="@drawable/register" />
+            android:onClick="registraUser"
+            app:srcCompat="@drawable/adduser" />
 
         <TextView
             android:id="@+id/registerUser"
@@ -71,25 +72,28 @@
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/showProducts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/registraUser"
-            android:layout_centerVertical="true"
-            android:backgroundTint="@android:color/background_light"
-            app:srcCompat="@drawable/cart" />
-
         <TextView
             android:id="@+id/showProdotti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/showProducts"
+            android:layout_above="@+id/registraUser"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="73dp"
             android:text="Mostra Prodotti"
             android:textAlignment="center"
             android:textColor="@android:color/holo_red_dark"
             android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/showProdotti"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:onClick="mostraProdotti"
+            android:src="@drawable/shoppingcart" />
 
     </RelativeLayout>
 
