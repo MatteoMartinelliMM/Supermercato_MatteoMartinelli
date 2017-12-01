@@ -92,7 +92,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="15dp"
             android:backgroundTint="@color/cardview_light_background"
-            android:onClick="mostraProdotti"
+            android:onClick="mostraPrdotti"
             android:src="@drawable/shoppingcart" />
 
     </RelativeLayout>

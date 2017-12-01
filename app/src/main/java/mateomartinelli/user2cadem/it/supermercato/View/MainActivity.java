@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         welcomeUser = findViewById(R.id.welcome);
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if (preferences.contains("loggedUser")) {
             String loggedUser = preferences.getString("loggedUser", null);
             welcomeUser.setText(loggedUser);
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void mostraPrdotti(View v){
         Intent intent = new Intent(this,ShowProdottiActivity.class);
+        startActivity(intent);
     }
 
 

@@ -1,17 +1,19 @@
 package mateomartinelli.user2cadem.it.supermercato.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by utente2.academy on 11/30/2017.
  */
 
-public class Supermercato {
+public class Supermercato implements Serializable{
     private ArrayList<Prodotti> prodotti;
 
     public Supermercato(ArrayList<Prodotti> prodotti) {
         this.prodotti = prodotti;
     }
+
 
     public Supermercato() {
         prodotti = new ArrayList<>();
@@ -24,6 +26,9 @@ public class Supermercato {
     public Prodotti removeAProduct(int index){
         return prodotti.remove(index);
 
+    }
+    public int size(){
+        return prodotti.size();
     }
     public  void removeThisProduct(Prodotti p){
         prodotti.remove(prodotti);
@@ -43,5 +48,9 @@ public class Supermercato {
 
     public void setProdotti(ArrayList<Prodotti> prodotti) {
         this.prodotti = prodotti;
+    }
+
+    public boolean isEmpty(){
+        return prodotti.isEmpty();
     }
 }

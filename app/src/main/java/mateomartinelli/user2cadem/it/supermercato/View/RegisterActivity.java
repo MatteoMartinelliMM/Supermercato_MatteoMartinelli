@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (userName != null) {
             editor = preferences.edit();
             editor.putString("loggedUser",userName);
+            editor.commit();
             startActivity(intent);
         }
 

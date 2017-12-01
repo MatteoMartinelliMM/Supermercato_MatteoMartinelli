@@ -7,9 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import mateomartinelli.user2cadem.it.supermercato.Model.Prodotti;
+import mateomartinelli.user2cadem.it.supermercato.Model.Supermercato;
 import mateomartinelli.user2cadem.it.supermercato.R;
 
 /**
@@ -17,10 +16,10 @@ import mateomartinelli.user2cadem.it.supermercato.R;
  */
 
 public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.ViewHolder> {
-    ArrayList<Prodotti> listOfProducts;
+    Supermercato supermercato;
 
-    public MyProductsAdapter(ArrayList<Prodotti> listOfProducts) {
-        this.listOfProducts = listOfProducts;
+    public MyProductsAdapter(Supermercato supermercato) {
+        this.supermercato = supermercato;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -50,7 +49,7 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Prodotti prodotto =listOfProducts.get(position);
+        Prodotti prodotto = supermercato.getProdotto(position);
         holder.marcaPrododtto.setText(prodotto.getMarca());
         holder.costoProdotto.setText(prodotto.getPrezzo()+"");
 
@@ -58,6 +57,6 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return listOfProducts.size();
+        return supermercato.size();
     }
 }

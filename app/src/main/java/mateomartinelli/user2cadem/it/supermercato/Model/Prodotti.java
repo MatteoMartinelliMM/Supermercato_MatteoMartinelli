@@ -1,10 +1,12 @@
 package mateomartinelli.user2cadem.it.supermercato.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by utente2.academy on 11/30/2017.
  */
 
-public abstract class Prodotti {
+public abstract class Prodotti implements Serializable{
     private String marca;
     private double Prezzo;
     private String idProdotto;
