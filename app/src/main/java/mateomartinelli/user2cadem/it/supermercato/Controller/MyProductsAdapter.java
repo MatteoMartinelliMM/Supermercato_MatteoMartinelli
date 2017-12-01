@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import mateomartinelli.user2cadem.it.supermercato.Model.Prodotti;
@@ -26,12 +27,14 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
 
         public CardView productCard;
         public TextView marcaPrododtto, costoProdotto;
+        public ImageView immagineProdotto;
         public ViewHolder(View v) {
             super(v);
 
             productCard = itemView.findViewById(R.id.mCard);
             marcaPrododtto = v.findViewById(R.id.marcaProdotto);
             costoProdotto = v.findViewById(R.id.costoProdotto);
+            immagineProdotto = v.findViewById(R.id.immagineProdotto);
 
         }
     }
@@ -52,6 +55,18 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
         Prodotti prodotto = supermercato.getProdotto(position);
         holder.marcaPrododtto.setText(prodotto.getMarca());
         holder.costoProdotto.setText(prodotto.getPrezzo()+"");
+        String tipo = prodotto.getClass().getSimpleName();
+        switch (tipo){
+            case "Latte":
+                holder.immagineProdotto.setImageResource(R.drawable.latte_esselunga);
+                break;
+            case "Carne":
+                holder.immagineProdotto.setImageResource(R.drawable.carne_esselunga);
+                break;
+            case "Pesce":
+                holder.immagineProdotto.setImageResource(R.drawable.pesce_esselunga);
+                break;
+        }
 
     }
 

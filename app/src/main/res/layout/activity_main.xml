@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@android:color/white"
     tools:context="mateomartinelli.user2cadem.it.supermercato.View.MainActivity">
 
     <RelativeLayout
@@ -18,6 +19,7 @@
             android:id="@+id/esselunga_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             app:srcCompat="@drawable/esselungalogoltl" />
 
         <TextView
@@ -52,33 +54,13 @@
             android:layout_alignParentStart="true"
             app:srcCompat="@drawable/magomelino" />
 
-        <ImageButton
-            android:id="@+id/registraUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/imageView2"
-            android:layout_centerHorizontal="true"
-            android:backgroundTint="@android:color/background_light"
-            android:onClick="registraUser"
-            app:srcCompat="@drawable/adduser" />
-
-        <TextView
-            android:id="@+id/registerUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/registraUser"
-            android:layout_centerHorizontal="true"
-            android:text="Registrati"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
-
         <TextView
             android:id="@+id/showProdotti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/registraUser"
+            android:layout_above="@+id/imageView2"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="73dp"
+            android:layout_marginBottom="80dp"
             android:text="Mostra Prodotti"
             android:textAlignment="center"
             android:textColor="@android:color/holo_red_dark"
@@ -88,12 +70,23 @@
             android:id="@+id/imageButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/showProdotti"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="15dp"
-            android:backgroundTint="@color/cardview_light_background"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@android:color/white"
             android:onClick="mostraPrdotti"
             android:src="@drawable/shoppingcart" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/imageButton4"
+            android:layout_marginBottom="26dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="registraUser"
+            android:text="Registrati"
+            android:textColor="@color/background" />
 
     </RelativeLayout>
 

@@ -1,6 +1,8 @@
 package mateomartinelli.user2cadem.it.supermercato.Controller;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +22,7 @@ public class JSONParsing {
 
     public static final String MARCA = "Marca";
     public static final String PREZZO = "Prezzo";
-
+    public static int counterPesce = 0, counterCarne = 0 , counterLatte = 0;
     public static Supermercato parseAllProducts(String toParse, Context context){ //NB: CPL = carne/pesce/latte
         Supermercato supermercato = new Supermercato();
         try {
@@ -44,6 +46,7 @@ public class JSONParsing {
                             marca = jCarne.getString(MARCA);
                             prezzoString = jCarne.getString(PREZZO);
                             prezzo = -1;
+                            counterCarne++;
                             if(isDigit(prezzoString))
                                 prezzo = Double.parseDouble(prezzoString);
                             else prezzo =-1;
@@ -59,6 +62,7 @@ public class JSONParsing {
                             else prezzo = -1;
                             Pesce pesce = new Pesce(marca,prezzo);
                             supermercato.addProduct(pesce);
+                            counterPesce++;
                             break;
                         case "Latte":
                             JSONObject jLatte = ramoCPL.getJSONObject(keyCPLInExam);
@@ -69,16 +73,27 @@ public class JSONParsing {
                             else prezzo = -1;
                             Latte latte = new Latte(marca,prezzo);
                             supermercato.addProduct(latte);
+                            counterLatte++;
                             break;
                     }
                 }
 
             }
+            savingHowManyProducts(context);
             return supermercato;
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return  supermercato;
+    }
+
+    private static void savingHowManyProducts(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("Latte",counterLatte);
+        editor.putInt("Carne",counterCarne);
+        editor.putInt("Pesce",counterPesce);
+        editor.commit();
     }
 
     private static boolean isDigit(String s){

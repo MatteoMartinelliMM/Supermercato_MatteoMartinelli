@@ -7,4 +7,68 @@
     android:layout_height="match_parent"
     tools:context="mateomartinelli.user2cadem.it.supermercato.View.AddProductActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Spinner
+            android:id="@+id/scegliProdotto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/INSERISCI_CONSTANT"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:entries="@array/prodotti_toselect" />
+
+        <TextView
+            android:id="@+id/INSERISCI_CONSTANT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Inserisci"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/relativeLayout2">
+
+            <EditText
+                android:id="@+id/marca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Marca prodotto"
+                android:inputType="textPersonName" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/costo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayout2"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="costo"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="Inserisci"
+            android:text="Inserisci"
+            android:textColor="@color/background" />
+
+    </RelativeLayout>
 </RelativeLayout>
