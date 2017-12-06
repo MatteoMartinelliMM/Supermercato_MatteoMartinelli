@@ -35,17 +35,20 @@
                     android:text="Marca:"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"/>
 
                 <TextView
                     android:id="@+id/marcaProdotto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
+                    android:layout_toEndOf="@+id/MARCA_COSTANTE"
+                    android:text="ciao"
                     android:textAlignment="textStart"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:layout_marginLeft="10dp"/>
 
                 <TextView
                     android:id="@+id/EURO_COSTANTE"
@@ -67,7 +70,8 @@
                     android:text="347937"
                     android:textColor="@color/colorPrimary"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"/>
 
             </RelativeLayout>
 

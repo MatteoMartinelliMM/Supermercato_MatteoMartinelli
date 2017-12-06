@@ -53,7 +53,9 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Prodotti prodotto = supermercato.getProdotto(position);
-        holder.marcaPrododtto.setText(prodotto.getMarca());
+        String temp = prodotto.getMarca();
+        String marca = temp.substring(0,1).toUpperCase()+temp.substring(1);
+        holder.marcaPrododtto.setText(marca);
         holder.costoProdotto.setText(prodotto.getPrezzo()+"");
         String tipo = prodotto.getClass().getSimpleName();
         switch (tipo){
@@ -61,10 +63,10 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
                 holder.immagineProdotto.setImageResource(R.drawable.latte_esselunga);
                 break;
             case "Carne":
-                holder.immagineProdotto.setImageResource(R.drawable.carne_esselunga);
+                holder.immagineProdotto.setImageResource(R.drawable.carne);
                 break;
             case "Pesce":
-                holder.immagineProdotto.setImageResource(R.drawable.pesce_esselunga);
+                holder.immagineProdotto.setImageResource(R.drawable.pesce);
                 break;
         }
 

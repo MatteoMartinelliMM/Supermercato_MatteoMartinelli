@@ -1,7 +1,8 @@
 package mateomartinelli.user2cadem.it.supermercato.View;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.gesture.Prediction;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,16 +10,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.Iterator;
 
 import mateomartinelli.user2cadem.it.supermercato.Controller.ReadNWriteObject;
 import mateomartinelli.user2cadem.it.supermercato.Model.Carne;
@@ -30,29 +27,50 @@ import mateomartinelli.user2cadem.it.supermercato.R;
 
 public class AddProductActivity extends AppCompatActivity {
     private Spinner selectTypeOfProduct ;
-    private EditText nome,costo;
+    private EditText nome;
     private Supermercato supermercato;
     private SharedPreferences preferences;
     private FirebaseDatabase db;
     private DatabaseReference myRef;
-    private int nextToInsert = 0;
     private int counterLatte, counterPesce, counterCarne;
+    private SeekBar costoNuovo;
+    private TextView costo;
+    private double costoToInsert,value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hidingTheTitleBar();
         setContentView(R.layout.activity_add_product);
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
+        costo = findViewById(R.id.visualCosto);
         db = FirebaseDatabase.getInstance();
         myRef = db.getReferenceFromUrl("https://supermercato-41757.firebaseio.com/Prodotti");
 
-
+        costoNuovo = findViewById(R.id.changeCosto);
         selectTypeOfProduct = findViewById(R.id.scegliProdotto);
-        costo = findViewById(R.id.costo);
+        costo = findViewById(R.id.visualCosto);
         nome = findViewById(R.id.marca);
         String fileName = preferences.getString("FileName",null);
         supermercato = (Supermercato) ReadNWriteObject.readObject(this,fileName);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            costoNuovo.setMin(0);
+        }
+        costoNuovo.setMax(3000);
+
+        costoNuovo.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                value = ((double) progress / 100.0);
+                costo.setText(value+"");
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                costoToInsert =value;
+            }
+        });
 
     }
 
@@ -64,9 +82,10 @@ public class AddProductActivity extends AppCompatActivity {
 
         Prodotti p;
         final String tipoProdotto = selectTypeOfProduct.getSelectedItem().toString();
-        final double costoToinsert = Double.parseDouble(costo.getText().toString());
         final String nomeProdotto= nome.getText().toString();
-        aggiornaSupermercato(tipoProdotto, costoToinsert, nomeProdotto);
+        aggiornaSupermercato(tipoProdotto, costoToInsert, nomeProdotto);
+        Intent intent = new Intent(this, ShowProdottiActivity.class);
+        startActivity(intent);
 
 
     }
